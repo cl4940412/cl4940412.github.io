@@ -2,7 +2,7 @@ export function fetchPage(url) {
   return fetch(url).then(res => res.text());
 }
 
-import { openDB } from 'https://unpkg.com/idb?module';
+import { openDB } from 'idb.js';
 
 export const dbPromise = openDB('inbound-db', 1, {
   upgrade(db) {

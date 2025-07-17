@@ -1,8 +1,8 @@
 const CACHE_NAME = 'pwa-cache-v1';
 const OFFLINE_URLS = [
-  'https://unpkg.com/idb?module',
-  'https://unpkg.com/alpinejs',
-  'https://unpkg.com/navigo@8.11.1/lib/navigo.min.js',
+  '/idb.js',
+  '/alpine.js',
+  '/navigo.min.js',
   '/',
   '/index.html',
   '/app.js',
