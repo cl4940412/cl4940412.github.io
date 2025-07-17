@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" x-data="app" x-init="init($el)">
+<head>
+  <meta charset="UTF-8">
+  <title>商品掃描系統</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  <script src="https:////unpkg.com/alpinejs" defer></script>
+  <script src="https://unpkg.com/navigo@8.11.1/lib/navigo.min.js"></script>
+  <script type="module" src="app.js"></script>
+  <script type="module" src="router.js"></script>
+</head>
+<body class="p-4">
+  <div id="main" x-html="$store.app.pageContent"></div>
+  
+  <script>
+  
+  function fetchPage(url) {
+	  return fetch(url).then(res => res.text());
+	}
+  
+  document.addEventListener('alpine:init', () => {
+  Alpine.data('app', () => ({
+    async init(e) {
+	  console.log(e);
+      if ('serviceWorker' in navigator) {
+        <!-- navigator.serviceWorker.register('/service-worker.js'); -->
+      }
+    }
+	<!-- , -->
+    <!-- async loadPage(url, onLoaded) { -->
+      <!-- this.pageContent = await fetchPage(url); -->
+      <!-- this.$nextTick(() => { -->
+        <!-- if (onLoaded) onLoaded(); -->
+      <!-- }); -->
+    <!-- } -->
+  }));
+  Alpine.store('app', {async loadPage(url, onLoaded) {
+      
+      Alpine.store('app').pageContent = await fetchPage(url);
+	  console.log(this);
+      <!-- this.$nextTick(() => { -->
+        if (onLoaded){
+		  console.log('callback');
+		  onLoaded();
+		} 
+      <!-- }); -->
+	  },
+	  pageContent: ''
+	  
+	  
+	  });
+
+  <!-- Alpine.store('app', Alpine.data('app')()); -->
+});
+  </script>
+</body>
+</html>

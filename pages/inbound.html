@@ -1,0 +1,24 @@
+<div x-data="inboundScanner" x-init="init">
+  <h2>商品入庫掃描</h2>
+
+  <div class="mb-4">
+    <label>入庫單號：</label>
+    <input type="text" x-model="orderId" readonly class="border p-1 w-full" />
+  </div>
+
+  <div class="mb-4">
+    <label>掃描流水號：</label>
+    <input type="text" x-model="serialInput" @keydown.enter.prevent="addSerial" class="border p-1 w-full" autofocus />
+  </div>
+
+  <div class="mb-4">
+    <h3>已掃描清單：</h3>
+    <ul class="list-disc pl-5">
+      <template x-for="(item, index) in scannedList" :key="index">
+        <li x-text="item"></li>
+      </template>
+    </ul>
+  </div>
+
+  <button @click="upload" class="bg-blue-500 text-white px-4 py-2 rounded">上傳</button>
+</div>

@@ -1,0 +1,13 @@
+{
+  "name": "商品掃描系統",
+  "short_name": "入庫掃描",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#063a6b",
+  "icons": [{
+            "src": "icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }]
+}
