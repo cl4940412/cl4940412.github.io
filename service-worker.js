@@ -8,7 +8,8 @@ const OFFLINE_URLS = [
   '/app.js',
   '/router.js',
   '/pages/home.html',
-  '/pages/inbound.html'
+  '/pages/inbound.html',
+  '/pages/inbound.js'
 ];
 
 self.addEventListener('install', e => {
