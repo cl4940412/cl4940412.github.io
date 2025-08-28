@@ -2,3 +2,10 @@
   <h1>功能選單</h1>
   <button @click="$store.router.navigate('/inbound')">商品入庫掃描</button>
 </div>
+
+  <div class="grid grid-cols-2 gap-2 mt-2">
+    <button @click="$store.router.navigate('/outbound')">商品出庫</button>
+    <button @click="$store.router.navigate('/return')">退貨管理</button>
+    <button @click="$store.router.navigate('/inventory')">庫存查詢</button>
+    <button @click="$store.router.navigate('/account')">帳號管理</button>
+  </div>
