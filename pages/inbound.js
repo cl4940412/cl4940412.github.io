@@ -10,7 +10,13 @@ export async function initInbound() {
     db,
 
     async init() {
-		console.log(this);
+	  console.log(this);
+	  if(new Date().getSeconds()%2 == 0){
+		  document.getElementById("test1").value=0;
+	  }else{
+		  document.getElementById("test1").value=1;
+	  }
+	  
       this.generateOrderId();
       await this.loadFromDB();
     },

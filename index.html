@@ -1,19 +1,173 @@
 <!DOCTYPE html>
-<html lang="en" x-data="app" x-init="init($el)">
+<html lang="zh-Hant" x-data="app" x-init="init($el)">
 <head>
   <meta charset="UTF-8">
-  <title>商品掃描系統</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="manifest" href="manifest.json">
+  <title>出入庫系統 - 入口頁面 (版本一)</title>
+  <link href="D:/download/bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="D:/download/fontawesome-free-6.5.1-web/css/all.min.css"><link rel="manifest" href="manifest.json">
   <script src="alpine.js" defer></script>
   <script src="navigo.min.js"></script>
   <script type="module" src="app.js"></script>
   <script type="module" src="router.js"></script>
+  <style>
+	body {
+       background-color: #f8f9fa;
+       padding-top: 56px;
+   }
+   .navbar {
+       background-color: #063a6b;
+   }
+   .navbar-brand, .navbar-nav .nav-link {
+       color: #fff !important;
+   }
+   .jumbotron {
+       background-color: #fff;
+       padding: 2rem;
+       margin-bottom: 2rem;
+       text-align: center;
+   }
+   .status-badge {
+       font-size: 0.8rem;
+       padding: 0.5em 0.8em;
+   }
+   .card-feature {
+       width: 100%;
+       height: 150px;
+       text-decoration: none;
+       color: #fff !important;
+       transition: transform 0.2s, box-shadow 0.2s;
+       border: none;
+   }
+   .card-feature:hover {
+       transform: translateY(-5px);
+       box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+   }
+   .card-feature .card-body {
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       height: 100%;
+   }
+   .card-feature .fa-solid, .card-feature .fa-brands {
+       font-size: 48px;
+       margin-bottom: 0.5rem;
+   }
+   .card-feature .card-title {
+       font-size: 1.25rem;
+       font-weight: bold;
+       text-align: center;
+   }
+   /* 新增使用者資訊卡片樣式 */
+   .user-info-card {
+       background-color: #fff;
+       border-radius: 0.5rem;
+       box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+       padding: 1.5rem;
+       margin-bottom: 1.5rem; /* 調整為 1.5rem */
+       margin-top: 1.5rem; /* 新增 margin-top: 1.5rem */
+   }
+   .user-info-card .user-info-icon {
+       font-size: 2.5rem;
+       margin-right: 1.5rem;
+       color: #063a6b;
+   }
+  </style>
 </head>
-<body class="p-4">
-  <button @click="$store.router.navigate('/')">回到首頁</button>
-  <div id="main" x-html="$store.app.pageContent"></div>
-  
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">出入庫管理系統</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa-solid fa-house me-1"></i> 首頁
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa-solid fa-user me-1"></i> 歡迎, <strong id="current-user">使用者姓名</strong>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="logout-btn">
+                        <i class="fa-solid fa-right-from-bracket me-1"></i> 登出
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container mb-5">
+	<div class="user-info-card d-flex align-items-center justify-content-between">
+		<div class="d-flex align-items-center">
+			<i class="fa-solid fa-user-circle user-info-icon"></i>
+			<div>
+				<h5 class="mb-0">歡迎回來, <strong id="currentUser">使用者姓名</strong></h5>
+				<small class="text-muted">這是您的主控台。</small>
+			</div>
+		</div>
+		<div>
+			網路狀態: <span id="network-status" class="badge rounded-pill bg-success">上線</span>
+		</div>
+	</div>
+	<div id="main" x-html="$store.app.pageContent"></div>
+</div>
+  <!-- <div id="main" x-html="$store.app.pageContent"></div> -->
+  <!-- <div class="container"> -->
+    <!-- <div class="jumbotron"> -->
+        <!-- <h1>主控台</h1> -->
+        <!-- <p>請選擇您要執行的功能。</p> -->
+    <!-- </div> -->
+
+    <!-- <div class="row"> -->
+        <!-- <div class="col-md-12"> -->
+            <!-- <div id="network-status" class="status-box status-online"> -->
+                <!-- <span class="glyphicon glyphicon-globe"></span> 網路狀態: 上線 -->
+            <!-- </div> -->
+        <!-- </div> -->
+    <!-- </div> -->
+
+    <!-- <div class="row"> -->
+        <!-- <div class="col-sm-6 col-md-3"> -->
+            <!-- <a href="#" class="btn btn-primary btn-main-feature"> -->
+                <!-- <i class="fa fa-qrcode"></i> -->
+                <!-- 入庫掃描 -->
+            <!-- </a> -->
+        <!-- </div> -->
+        <!-- <div class="col-sm-6 col-md-3"> -->
+            <!-- <a href="#" class="btn btn-success btn-main-feature"> -->
+                <!-- <i class="fa fa-truck"></i> -->
+                <!-- 出庫掃描 -->
+            <!-- </a> -->
+        <!-- </div> -->
+        <!-- <div class="col-sm-6 col-md-3"> -->
+            <!-- <a href="#" class="btn btn-warning btn-main-feature"> -->
+                <!-- <i class="fa fa-undo"></i> -->
+                <!-- 退貨 -->
+            <!-- </a> -->
+        <!-- </div> -->
+        <!-- <div class="col-sm-6 col-md-3"> -->
+            <!-- <a href="#" class="btn btn-info btn-main-feature"> -->
+                <!-- <i class="fa fa-search"></i> -->
+                <!-- 物流查詢 -->
+            <!-- </a> -->
+        <!-- </div> -->
+        <!-- <div class="col-sm-6 col-md-3"> -->
+            <!-- <a href="#" class="btn btn-primary btn-main-feature"> -->
+                <!-- <i class="fa fa-user"></i> -->
+                <!-- 帳號設定 -->
+            <!-- </a> -->
+        <!-- </div> -->
+    <!-- </div> -->
+  <!-- </div> -->
+  <script type="text/javascript" src="D:/download/bootstrap-5.3.8-dist/js/bootstrap.min.js"></script>
   <script>
   
   function fetchPage(url) {
@@ -54,6 +208,28 @@
 
   <!-- Alpine.store('app', Alpine.data('app')()); -->
 });
+
+  // 顯示登入帳號
+  document.addEventListener("DOMContentLoaded", function() {
+    var user = localStorage.getItem("currentUser") || "未登入";
+    document.getElementById("currentUser").innerText = user;
+  });
+
+  // 更新網路狀態
+  function updateNetworkStatus() {
+    var el = document.getElementById("networkStatus");
+    if (navigator.onLine) {
+      el.textContent = "在線";
+      el.className = "label label-success";
+    } else {
+      el.textContent = "離線";
+      el.className = "label label-warning";
+    }
+  }
+
+  window.addEventListener("online", updateNetworkStatus);
+  window.addEventListener("offline", updateNetworkStatus);
+  updateNetworkStatus(); // 初始檢查
   </script>
 </body>
 </html>

@@ -1,11 +1,117 @@
-<div class="space-y-2">
-  <h1>功能選單</h1>
-  <button @click="$store.router.navigate('/inbound')">商品入庫掃描</button>
-</div>
+<!-- <div class="space-y-2"> -->
+  <!-- <h1>功能選單</h1> -->
+  <!-- <button @click="$store.router.navigate('/inbound')">商品入庫掃描</button> -->
+<!-- </div> -->
 
-  <div class="grid grid-cols-2 gap-2 mt-2">
-    <button @click="$store.router.navigate('/outbound')">商品出庫</button>
-    <button @click="$store.router.navigate('/return')">退貨管理</button>
-    <button @click="$store.router.navigate('/inventory')">庫存查詢</button>
-    <button @click="$store.router.navigate('/account')">帳號管理</button>
-  </div>
+  <!-- <div class="grid grid-cols-2 gap-2 mt-2"> -->
+    <!-- <button @click="$store.router.navigate('/outbound')">商品出庫</button> -->
+    <!-- <button @click="$store.router.navigate('/return')">退貨管理</button> -->
+    <!-- <button @click="$store.router.navigate('/inventory')">庫存查詢</button> -->
+    <!-- <button @click="$store.router.navigate('/account')">帳號管理</button> -->
+  <!-- </div> -->
+
+  <!-- <div class="container" style="margin-top:20px;"> -->
+
+  <!-- <div class="row"> -->
+    <!-- <div class="col-xs-12"> -->
+      <!-- <div class="panel panel-default"> -->
+        <!-- <div class="panel-body" style="display:flex; justify-content:space-between; align-items:center;"> -->
+          <!-- <div> -->
+            <!-- <p class="text-muted" style="margin:0;">登入帳號</p> -->
+            <!-- <p id="currentUser" style="font-weight:bold; margin:0;">載入中...</p> -->
+          <!-- </div> -->
+          <!-- <div id="networkStatus" class="label label-default">檢查中...</div> -->
+        <!-- </div> -->
+      <!-- </div> -->
+    <!-- </div> -->
+  <!-- </div> -->
+
+  <!-- <h3 class="text-center" style="margin:20px 0;">📦 出入庫系統</h3> -->
+
+  
+  <!-- <div class="row"> -->
+    
+    <!-- <div class="col-xs-6" style="margin-bottom:15px;"> -->
+      <!-- <div class="panel panel-primary" style="cursor:pointer;" @click="$store.router.navigate('/inbound')"> -->
+        <!-- <div class="panel-body text-center"> -->
+          <!-- <div style="font-size:32px;">⬆️</div> -->
+          <!-- <div style="margin-top:5px; font-weight:bold;">入庫</div> -->
+        <!-- </div> -->
+      <!-- </div> -->
+    <!-- </div> -->
+
+    
+    <!-- <div class="col-xs-6" style="margin-bottom:15px;"> -->
+      <!-- <div class="panel panel-success" style="cursor:pointer;" @click="$store.router.navigate('/outbound')"> -->
+        <!-- <div class="panel-body text-center"> -->
+          <!-- <div style="font-size:32px;">⬇️</div> -->
+          <!-- <div style="margin-top:5px; font-weight:bold;">出庫</div> -->
+        <!-- </div> -->
+      <!-- </div> -->
+    <!-- </div> -->
+
+    
+    <!-- <div class="col-xs-6" style="margin-bottom:15px;"> -->
+      <!-- <div class="panel panel-warning" style="cursor:pointer;" @click="$store.router.navigate('/inventory')"> -->
+        <!-- <div class="panel-body text-center"> -->
+          <!-- <div style="font-size:32px;">📊</div> -->
+          <!-- <div style="margin-top:5px; font-weight:bold;">庫存查詢</div> -->
+        <!-- </div> -->
+      <!-- </div> -->
+    <!-- </div> -->
+
+    
+    <!-- <div class="col-xs-6" style="margin-bottom:15px;"> -->
+      <!-- <div class="panel panel-danger" style="cursor:pointer;" @click="$store.router.navigate('/return')"> -->
+        <!-- <div class="panel-body text-center"> -->
+          <!-- <div style="font-size:32px;">↩️</div> -->
+          <!-- <div style="margin-top:5px; font-weight:bold;">退貨</div> -->
+        <!-- </div> -->
+      <!-- </div> -->
+    <!-- </div> -->
+  <!-- </div> -->
+<!-- </div> -->
+
+	<div class="row justify-content-center">
+		<div class="col-6 col-md-4 mb-4">
+			<a @click="$store.router.navigate('/inbound')" href="#" class="card card-feature bg-primary">
+				<div class="card-body">
+					<i class="fa-solid fa-qrcode"></i>
+					<h5 class="card-title">入庫掃描</h5>
+				</div>
+			</a>
+		</div>
+		<div class="col-6 col-md-4 mb-4">
+			<a href="#" class="card card-feature bg-success">
+				<div class="card-body">
+					<i class="fa-solid fa-truck"></i>
+					<h5 class="card-title">出庫掃描</h5>
+				</div>
+			</a>
+		</div>
+		<div class="col-6 col-md-4 mb-4">
+			<a href="#" class="card card-feature bg-warning">
+				<div class="card-body">
+					<i class="fa-solid fa-undo"></i>
+					<h5 class="card-title">退貨</h5>
+				</div>
+			</a>
+		</div>
+		<div class="col-6 col-md-4 mb-4">
+			<a href="#" class="card card-feature bg-info">
+				<div class="card-body">
+					<i class="fa-solid fa-magnifying-glass"></i>
+					<h5 class="card-title">物流查詢</h5>
+				</div>
+			</a>
+		</div>
+		<div class="col-6 col-md-4 mb-4">
+			<a href="#" class="card card-feature bg-primary">
+				<div class="card-body">
+					<i class="fa-solid fa-user"></i>
+					<h5 class="card-title">帳號設定</h5>
+				</div>
+			</a>
+		</div>
+    </div>
+

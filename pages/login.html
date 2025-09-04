@@ -1,0 +1,25 @@
+<div x-data="loginPage" x-init="init()" class="row justify-content-center">
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card shadow-sm mt-5">
+      <div class="card-body">
+        <h4 class="card-title text-center mb-4">
+          <i class="fa-solid fa-right-to-bracket me-2"></i> 系統登入
+        </h4>
+        <form id="loginForm">
+          <div class="mb-3">
+            <label for="username" class="form-label">帳號</label>
+            <input type="text" id="username" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">密碼</label>
+            <input type="password" id="password" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">
+            <i class="fa-solid fa-arrow-right-to-bracket me-2"></i> 登入
+          </button>
+        </form>
+        <div id="loginMsg" class="text-center text-danger mt-3"></div>
+      </div>
+    </div>
+  </div>
+</div>

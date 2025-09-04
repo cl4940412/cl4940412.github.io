@@ -1,5 +1,5 @@
-export async function initAccount() {
-  Alpine.data('accountPage', () => ({ 
+export async function initLogin() {
+  Alpine.data('loginPage', () => ({ 
     async init() {
       console.log('帳號管理 頁面初始化');
 	  async function login(username, password) {
@@ -23,9 +23,11 @@ export async function initAccount() {
 			//await saveSettingsToIDB(data.settings);
 			console.log(data.settings);
 		  }
+		  
+		  document.getElementById("currentUser").innerText = username;
 
 		  // 3. 導回首頁
-		  Alpine.store('router').navigate('/index.html');
+		  Alpine.store('router').navigate('/home');
 		} catch (err) {
 		  console.error(err);
 		  document.getElementById("loginMsg").textContent = "登入失敗，請檢查帳號或密碼";
